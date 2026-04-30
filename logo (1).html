@@ -1,0 +1,456 @@
+<!DOCTYPE html><html lang="he" dir="rtl"><head>
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>עוברים רישוי — לוגו</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;700;900&amp;family=Rubik:wght@300;400;500;700;900&amp;family=Secular+One&amp;family=Noto+Sans+Hebrew:wght@300;400;700;900&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue:   #1A3C8F;
+      --blue-dark: #122a66;
+      --gold:   #F5C200;
+      --gold-light: #FFD740;
+      --white:  #FAFAFA;
+      --ink:    #0D1F4E;
+      --muted:  #7a8aaa;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #F0F2F8;
+      font-family: 'Heebo', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      padding: 60px 24px;
+    }
+
+    /* ─── Label above each card ─── */
+    .section-label {
+      font-family: 'Heebo', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-align: center;
+      margin-bottom: 16px;
+      direction: ltr;
+    }
+
+    /* ─── Card wrapper ─── */
+    .card {
+      border-radius: 20px;
+      padding: 56px 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      box-shadow: 0 2px 32px rgba(26,60,143,0.10), 0 1px 4px rgba(26,60,143,0.06);
+      width: 460px;
+    }
+    .card.light { background: #FFFFFF; }
+    .card.dark  { background: var(--ink); }
+    .card.blue  { background: var(--blue); }
+
+    /* ─── Logo icon ─── */
+    .logo-icon {
+      width: 90px;
+      height: 90px;
+      margin-bottom: 28px;
+    }
+
+    /* ─── Logo text block ─── */
+    .logo-name {
+      font-family: 'Heebo', sans-serif;
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -0.01em;
+      line-height: 1;
+      color: var(--ink);
+      text-align: center;
+      direction: rtl;
+    }
+    .logo-name.on-dark { color: #FFFFFF; }
+    .logo-name.on-blue { color: #FFFFFF; }
+
+    .logo-sub {
+      font-family: 'Heebo', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      text-align: center;
+      direction: rtl;
+      margin-top: 7px;
+    }
+    .logo-sub.on-dark { color: rgba(255,255,255,0.55); }
+    .logo-sub.on-blue { color: rgba(255,255,255,0.65); }
+
+    /* divider */
+    .divider {
+      width: 1px;
+      height: 32px;
+      background: rgba(26,60,143,0.15);
+      margin: 0 auto;
+    }
+
+    /* ─── Horizontal row for small variants ─── */
+    .row {
+      display: flex;
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .card-sm {
+      border-radius: 20px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      box-shadow: 0 2px 24px rgba(26,60,143,0.10);
+      flex: 1;
+    }
+    .card-sm.light { background: #FFFFFF; }
+    .card-sm.dark  { background: var(--ink); }
+    .card-sm.gold-bg { background: var(--gold); }
+
+    /* ─── Horizontal logo lockup ─── */
+    .lockup-card {
+      border-radius: 20px;
+      padding: 36px 48px;
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 24px;
+      box-shadow: 0 2px 32px rgba(26,60,143,0.10), 0 1px 4px rgba(26,60,143,0.06);
+      width: 460px;
+      background: #FFFFFF;
+      direction: rtl;
+    }
+    .lockup-card .logo-icon { width: 56px; height: 56px; margin-bottom: 0; }
+    .lockup-text { text-align: right; }
+    .lockup-text .logo-name { font-size: 24px; }
+    .lockup-text .logo-sub  { font-size: 12px; margin-top: 4px; }
+
+    /* Color swatches */
+    .swatches {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+    .swatch {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      direction: ltr;
+    }
+    .swatch-dot {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+    }
+    .swatch span {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: var(--muted);
+      font-family: 'Heebo', monospace;
+    }
+  </style>
+</head>
+<body style="font-family: Heebo;">
+
+  <!-- ══════════════════════════════════════
+       PRIMARY LOGO — WHITE BACKGROUND
+  ══════════════════════════════════════ -->
+  <div>
+    <div class="section-label">Primary — Light</div>
+    <div class="card light">
+      <svg class="logo-icon" viewBox="0 0 100 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Gold short arm: upper-left to corner -->
+        <polygon points="1,52 14,38 43,64 28,79" fill="#F5C200"></polygon>
+        <!-- Blue long arm: corner to upper-right (extended back to cover seam) -->
+        <polygon points="30,81 18,67 82,10 94,24" fill="#1A3C8F"></polygon>
+        <!-- Gold spark dot at short arm tip -->
+        <circle cx="7.5" cy="44" r="6.5" fill="#F5C200"></circle>
+        <!-- Blue cap at long arm tip -->
+        <circle cx="88" cy="17" r="6.5" fill="#1A3C8F"></circle>
+      </svg>
+
+      <div class="logo-name">עוברים רישוי</div>
+      <div class="logo-sub">הכנה לרישיון חשמלאי</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       PRIMARY LOGO — DARK BACKGROUND
+  ══════════════════════════════════════ -->
+  <div>
+    <div class="section-label">Primary — Dark</div>
+    <div class="card dark">
+      <svg class="logo-icon" viewBox="0 0 100 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="1,52 14,38 43,64 28,79" fill="#F5C200"></polygon>
+        <polygon points="30,81 18,67 82,10 94,24" fill="#FFFFFF"></polygon>
+        <circle cx="7.5" cy="44" r="6.5" fill="#F5C200"></circle>
+        <circle cx="88" cy="17" r="6.5" fill="#FFFFFF"></circle>
+      </svg>
+      <div class="logo-name on-dark">עוברים רישוי</div>
+      <div class="logo-sub on-dark">הכנה לרישיון חשמלאי</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       BLUE BACKGROUND VARIANT
+  ══════════════════════════════════════ -->
+  <div>
+    <div class="section-label">Primary — Blue</div>
+    <div class="card blue">
+      <svg class="logo-icon" viewBox="0 0 100 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="1,52 14,38 43,64 28,79" fill="#F5C200"></polygon>
+        <polygon points="30,81 18,67 82,10 94,24" fill="#FFFFFF"></polygon>
+        <circle cx="7.5" cy="44" r="6.5" fill="#F5C200"></circle>
+        <circle cx="88" cy="17" r="6.5" fill="#FFFFFF"></circle>
+      </svg>
+      <div class="logo-name on-blue">עוברים רישוי</div>
+      <div class="logo-sub on-blue">הכנה לרישיון חשמלאי</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       HORIZONTAL LOCKUP
+  ══════════════════════════════════════ -->
+  <div>
+    <div class="section-label">Horizontal Lockup</div>
+    <div class="lockup-card">
+      <svg class="logo-icon" viewBox="0 0 100 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <polygon points="1,52 14,38 43,64 28,79" fill="#F5C200"></polygon>
+        <polygon points="30,81 18,67 82,10 94,24" fill="#1A3C8F"></polygon>
+        <circle cx="7.5" cy="44" r="6.5" fill="#F5C200"></circle>
+        <circle cx="88" cy="17" r="6.5" fill="#1A3C8F"></circle>
+      </svg>
+      <div class="lockup-text">
+        <div class="logo-name">עוברים רישוי</div>
+        <div class="logo-sub">הכנה לרישיון חשמלאי</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SMALL VARIANTS ROW
+  ══════════════════════════════════════ -->
+  <div style="width:460px">
+    <div class="section-label">Icon Variants</div>
+    <div class="row">
+      <!-- Icon only, white -->
+      <div class="card-sm light">
+        <svg style="width:60px;height:60px" viewBox="0 0 100 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="1,52 14,38 43,64 28,79" fill="#F5C200"></polygon>
+          <polygon points="30,81 18,67 82,10 94,24" fill="#1A3C8F"></polygon>
+          <circle cx="7.5" cy="44" r="6.5" fill="#F5C200"></circle>
+          <circle cx="88" cy="17" r="6.5" fill="#1A3C8F"></circle>
+        </svg>
+      </div>
+      <!-- Icon only, dark -->
+      <div class="card-sm dark">
+        <svg style="width:60px;height:60px" viewBox="0 0 100 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="1,52 14,38 43,64 28,79" fill="#F5C200"></polygon>
+          <polygon points="30,81 18,67 82,10 94,24" fill="#FFFFFF"></polygon>
+          <circle cx="7.5" cy="44" r="6.5" fill="#F5C200"></circle>
+          <circle cx="88" cy="17" r="6.5" fill="#FFFFFF"></circle>
+        </svg>
+      </div>
+      <!-- Icon only, gold bg -->
+      <div class="card-sm gold-bg">
+        <svg style="width:60px;height:60px" viewBox="0 0 100 96" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <polygon points="1,52 14,38 43,64 28,79" fill="#FFFFFF"></polygon>
+          <polygon points="30,81 18,67 82,10 94,24" fill="#1A3C8F"></polygon>
+          <circle cx="7.5" cy="44" r="6.5" fill="#FFFFFF"></circle>
+          <circle cx="88" cy="17" r="6.5" fill="#1A3C8F"></circle>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       SEPARATOR
+  ══════════════════════════════════════ -->
+  <div style="width:460px; border-top: 1px solid #d4d9e8; margin: 12px 0;"></div>
+  <div class="section-label" style="font-size:13px; color:#1A3C8F; letter-spacing:0.06em; font-weight:700; margin-bottom:0;">גרסאות מעודכנות — אייקון חלק + פונטים</div>
+
+  <!-- ══════════════════════════════════════
+       VARIANT A — RUBIK + SMOOTH ICON
+  ══════════════════════════════════════ -->
+  <div>
+    <div class="section-label">גרסה א׳ — Rubik</div>
+    <div class="card light">
+      <!-- Smooth stroke icon: two paths, round caps, no polygon artifacts -->
+      <svg class="logo-icon" viewBox="0 0 104 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Gold short arm -->
+        <path d="M 14,54 L 41,78" stroke="#F5C200" stroke-width="13" stroke-linecap="round"></path>
+        <!-- Blue long arm -->
+        <path d="M 41,78 L 90,18" stroke="#1A3C8F" stroke-width="13" stroke-linecap="round"></path>
+      </svg>
+      <div class="logo-name" style="font-family:'Rubik',sans-serif; direction:rtl;">עוברים רישוי</div>
+      <div class="logo-sub" style="font-family:'Rubik',sans-serif; direction:rtl;">הכנה לרישיון חשמלאי</div>
+    </div>
+  </div>
+
+  <!-- Dark version of Variant A -->
+  <div>
+    <div class="section-label">גרסה א׳ — Rubik / כהה</div>
+    <div class="card dark">
+      <svg class="logo-icon" viewBox="0 0 104 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 14,54 L 41,78" stroke="#F5C200" stroke-width="13" stroke-linecap="round"></path>
+        <path d="M 41,78 L 90,18" stroke="#FFFFFF" stroke-width="13" stroke-linecap="round"></path>
+      </svg>
+      <div class="logo-name on-dark" style="font-family:'Rubik',sans-serif; direction:rtl;">עוברים רישוי</div>
+      <div class="logo-sub on-dark" style="font-family:'Rubik',sans-serif; direction:rtl;">הכנה לרישיון חשמלאי</div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       VARIANT B — NOTO SANS HEBREW + SMOOTH ICON (THINNER)
+  ══════════════════════════════════════ -->
+  <div>
+    <div class="section-label">גרסה ב׳ — Noto Sans Hebrew</div>
+    <div class="card light">
+      <!-- Slightly thinner, more refined proportions -->
+      <svg class="logo-icon" viewBox="0 0 104 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Gold short arm — slightly wider angle -->
+        <path d="M 10,52 L 40,80" stroke="#F5C200" stroke-width="11" stroke-linecap="round"></path>
+        <!-- Blue long arm — longer reach -->
+        <path d="M 40,80 L 94,16" stroke="#1A3C8F" stroke-width="11" stroke-linecap="round"></path>
+        <!-- Small gold accent dot at the tip of gold arm -->
+        <circle cx="10" cy="52" r="5.5" fill="#F5C200"></circle>
+      </svg>
+      <div class="logo-name" style="font-family:'Noto Sans Hebrew',sans-serif; font-weight:800; letter-spacing:0.01em; direction:rtl;">עוברים רישוי</div>
+      <div class="logo-sub" style="font-family:'Noto Sans Hebrew',sans-serif; font-weight:300; direction:rtl;">הכנה לרישיון חשמלאי</div>
+    </div>
+  </div>
+
+  <!-- Dark version of Variant B -->
+  <div>
+    <div class="section-label">גרסה ב׳ — Noto Sans Hebrew / כהה</div>
+    <div class="card dark">
+      <svg class="logo-icon" viewBox="0 0 104 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 10,52 L 40,80" stroke="#F5C200" stroke-width="11" stroke-linecap="round"></path>
+        <path d="M 40,80 L 94,16" stroke="#FFFFFF" stroke-width="11" stroke-linecap="round"></path>
+        <circle cx="10" cy="52" r="5.5" fill="#F5C200"></circle>
+      </svg>
+      <div class="logo-name on-dark" style="font-family:'Noto Sans Hebrew',sans-serif; font-weight:800; direction:rtl;">עוברים רישוי</div>
+      <div class="logo-sub on-dark" style="font-family:'Noto Sans Hebrew',sans-serif; font-weight:300; direction:rtl;">הכנה לרישיון חשמלאי</div>
+    </div>
+  </div>
+
+  <!-- Horizontal lockups for both new variants -->
+  <div>
+    <div class="section-label">לוקאפ אופקי — Rubik</div>
+    <div class="lockup-card">
+      <svg class="logo-icon" viewBox="0 0 104 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 14,54 L 41,78" stroke="#F5C200" stroke-width="13" stroke-linecap="round"></path>
+        <path d="M 41,78 L 90,18" stroke="#1A3C8F" stroke-width="13" stroke-linecap="round"></path>
+      </svg>
+      <div class="lockup-text">
+        <div class="logo-name" style="font-family:'Rubik',sans-serif; direction:rtl;">עוברים רישוי</div>
+        <div class="logo-sub" style="font-family:'Rubik',sans-serif; direction:rtl;">הכנה לרישיון חשמלאי</div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="section-label">לוקאפ אופקי — Noto Sans Hebrew</div>
+    <div class="lockup-card">
+      <svg class="logo-icon" viewBox="0 0 104 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 10,52 L 40,80" stroke="#F5C200" stroke-width="11" stroke-linecap="round"></path>
+        <path d="M 40,80 L 94,16" stroke="#1A3C8F" stroke-width="11" stroke-linecap="round"></path>
+        <circle cx="10" cy="52" r="5.5" fill="#F5C200"></circle>
+      </svg>
+      <div class="lockup-text">
+        <div class="logo-name" style="font-family:'Noto Sans Hebrew',sans-serif; font-weight:800; direction:rtl;">עוברים רישוי</div>
+        <div class="logo-sub" style="font-family:'Noto Sans Hebrew',sans-serif; font-weight:300; direction:rtl;">הכנה לרישיון חשמלאי</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       VARIANT C — SHARP CORNERS, NO ROUNDS
+  ══════════════════════════════════════ -->
+  <div>
+    <div class="section-label">גרסה ג׳ — פינות חדות</div>
+    <div class="card light">
+      <svg class="logo-icon" viewBox="0 0 104 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Short gold arm: flat butt ends, sharp miter join -->
+        <path d="M 10,50 L 41,79" stroke="#F5C200" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter"></path>
+        <!-- Long blue arm -->
+        <path d="M 41,79 L 94,17" stroke="#1A3C8F" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter"></path>
+      </svg>
+      <div class="logo-name" style="font-family:'Rubik',sans-serif; direction:rtl;">עוברים רישוי</div>
+      <div class="logo-sub" style="font-family:'Rubik',sans-serif; direction:rtl;">הכנה לרישיון חשמלאי</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="section-label">גרסה ג׳ — פינות חדות / כהה</div>
+    <div class="card dark">
+      <svg class="logo-icon" viewBox="0 0 104 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 10,50 L 41,79" stroke="#F5C200" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter"></path>
+        <path d="M 41,79 L 94,17" stroke="#FFFFFF" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter"></path>
+      </svg>
+      <div class="logo-name on-dark" style="font-family:'Rubik',sans-serif; direction:rtl;">עוברים רישוי</div>
+      <div class="logo-sub on-dark" style="font-family:'Rubik',sans-serif; direction:rtl;">הכנה לרישיון חשמלאי</div>
+    </div>
+  </div>
+
+  <div>
+    <div class="section-label">לוקאפ אופקי — פינות חדות</div>
+    <div class="lockup-card">
+      <svg class="logo-icon" viewBox="0 0 104 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 10,50 L 41,79" stroke="#F5C200" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter"></path>
+        <path d="M 41,79 L 94,17" stroke="#1A3C8F" stroke-width="12" stroke-linecap="butt" stroke-linejoin="miter"></path>
+      </svg>
+      <div class="lockup-text">
+        <div class="logo-name" style="font-family:'Rubik',sans-serif; direction:rtl;">עוברים רישוי</div>
+        <div class="logo-sub" style="font-family:'Rubik',sans-serif; direction:rtl;">הכנה לרישיון חשמלאי</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════
+       COLOR PALETTE
+  ══════════════════════════════════════ -->
+  <div>
+    <div class="section-label">Color Palette</div>
+    <div class="card light" style="padding:36px 48px; flex-direction:row; gap:32px; width:460px; justify-content:center;">
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#1A3C8F"></div>
+        <span>#1A3C8F</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#0D1F4E"></div>
+        <span>#0D1F4E</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#F5C200; border: 1px solid rgba(0,0,0,0.06)"></div>
+        <span>#F5C200</span>
+      </div>
+      <div class="swatch">
+        <div class="swatch-dot" style="background:#FAFAFA; border:1px solid #e0e3ee"></div>
+        <span>#FAFAFA</span>
+      </div>
+    </div>
+  </div>
+
+
+
+</body></html>
