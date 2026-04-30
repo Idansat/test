@@ -1,0 +1,952 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>כל הגרסאות – Wireframe</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Heebo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --blue: #1A3C8F;
+  --dark: #0D1F4E;
+  --yellow: #F5C200;
+  --bg: #FAFAFA;
+  --muted: #888;
+  --border: #d4d4d4;
+  --done: #22c55e;
+  --prog: #F5C200;
+  --card: #fff;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Heebo', sans-serif;
+  background: #e8e3da;
+  color: #1a1a1a;
+  direction: rtl;
+  min-height: 100vh;
+}
+
+/* ── CANVAS ─────────────────────────────── */
+.canvas {
+  padding: 36px 28px 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.canvas-title {
+  font-family: 'Caveat', cursive;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--blue);
+  text-align: center;
+  margin-bottom: 4px;
+}
+.canvas-sub {
+  font-family: 'Caveat', cursive;
+  font-size: 16px;
+  color: var(--muted);
+  text-align: center;
+  margin-bottom: 36px;
+}
+
+/* version row */
+.versions-row {
+  display: flex;
+  gap: 48px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.version-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.version-label {
+  font-family: 'Caveat', cursive;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--blue);
+  text-align: center;
+}
+.version-sub {
+  font-family: 'Caveat', cursive;
+  font-size: 13px;
+  color: var(--muted);
+  text-align: center;
+  margin-top: -6px;
+  margin-bottom: 2px;
+}
+
+/* ── PHONE SHELL ─────────────────────────── */
+.phone {
+  width: 375px;
+  border: 3px solid #1a1a1a;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.18);
+  background: var(--bg);
+  flex-shrink: 0;
+}
+.phone-notch {
+  height: 28px;
+  background: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.phone-pill {
+  width: 80px; height: 10px;
+  background: var(--bg);
+  border-radius: 10px;
+}
+.phone-screen {
+  height: 790px;
+  overflow-y: auto;
+  background: var(--bg);
+  scrollbar-width: none;
+}
+.phone-screen::-webkit-scrollbar { display: none; }
+
+/* ── DESKTOP SHELL ───────────────────────── */
+.desktop-shell {
+  width: 1100px;
+  border: 3px solid #1a1a1a;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 8px 8px 0 rgba(0,0,0,0.15);
+  background: var(--bg);
+}
+.desktop-titlebar {
+  height: 36px;
+  background: #2a2a2a;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 8px;
+}
+.titlebar-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+}
+.titlebar-url {
+  flex: 1;
+  height: 22px;
+  background: rgba(255,255,255,0.12);
+  border-radius: 4px;
+  margin: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: rgba(255,255,255,0.5);
+  direction: ltr;
+}
+
+/* ── SHARED NAV ──────────────────────────── */
+.top-nav {
+  background: var(--dark);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.hamburger {
+  display: flex; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+}
+.hamburger span { display: block; width: 22px; height: 2.5px; background: var(--bg); border-radius: 2px; }
+.lockup { display: flex; align-items: center; gap: 8px; }
+.lockup .logo-name { font-weight: 700; font-size: 14px; color: #fff; }
+.lockup .logo-sub { font-size: 9px; color: rgba(255,255,255,0.5); }
+.nav-avatar {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--yellow); display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 13px; color: var(--dark);
+}
+
+/* ── PAGE TITLE ──────────────────────────── */
+.page-title-bar {
+  padding: 14px 16px 10px;
+  background: var(--bg);
+  border-bottom: 1.5px solid var(--border);
+}
+.page-title-bar h1 { font-size: 20px; font-weight: 700; color: var(--dark); }
+.page-title-bar p { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+/* ── STATS ───────────────────────────────── */
+.stats-row {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 12px 14px;
+}
+.stat-card {
+  background: var(--card); border: 1.5px solid var(--border); border-radius: 10px;
+  padding: 10px 12px;
+}
+.stat-label { font-size: 10px; color: var(--muted); text-align: right; margin-bottom: 4px; }
+.stat-value { font-size: 22px; font-weight: 700; color: var(--dark); text-align: right; }
+.stat-sub { font-size: 10px; color: var(--muted); text-align: right; }
+
+/* ── RESUME CARD ─────────────────────────── */
+.resume-section { padding: 0 14px 0; }
+.resume-label { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 10px; padding-top: 14px; }
+.resume-card {
+  background: var(--card);
+  border: 2px solid rgba(245,194,0,0.5);
+  border-radius: 14px;
+  padding: 14px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.resume-card::before {
+  content: ''; position: absolute; top: 0; right: 0; left: 0;
+  height: 3px; background: var(--yellow);
+}
+.resume-badge {
+  background: rgba(245,194,0,0.15); color: #b45309;
+  font-size: 10px; font-weight: 700; padding: 3px 10px; border-radius: 12px;
+  display: inline-block; margin-bottom: 8px;
+}
+.resume-name { font-size: 16px; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
+.resume-meta { font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+.prog-bg { background: #e9eaeb; border-radius: 10px; height: 7px; overflow: hidden; margin-bottom: 5px; }
+.prog-fill { height: 100%; border-radius: 10px; background: var(--yellow); }
+.prog-row { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); margin-bottom: 12px; }
+.mini-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; margin-bottom: 12px; }
+.mini-stat {
+  border-radius: 8px; padding: 7px; text-align: center;
+}
+.mini-stat .v { font-size: 14px; font-weight: 700; }
+.mini-stat .l { font-size: 9px; color: var(--muted); }
+.resume-btn {
+  width: 100%; padding: 11px; background: var(--blue); color: #fff;
+  border: none; border-radius: 10px; font-size: 13px; font-weight: 700;
+  font-family: Heebo, sans-serif; cursor: pointer;
+}
+
+/* ── DIVIDER ─────────────────────────────── */
+.divider { height: 1px; background: var(--border); margin: 14px 14px 0; }
+
+/* ── SECTION HEADER ──────────────────────── */
+.sec-header {
+  padding: 12px 16px 6px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.sec-title { font-size: 15px; font-weight: 700; color: var(--dark); }
+.sec-count { font-family: 'Caveat', cursive; font-size: 15px; color: var(--muted); }
+
+/* ── FILTER TABS ─────────────────────────── */
+.filter-tabs {
+  display: flex; gap: 6px; padding: 0 14px 10px;
+  overflow-x: auto; scrollbar-width: none;
+}
+.filter-tabs::-webkit-scrollbar { display: none; }
+.ftab {
+  flex-shrink: 0; padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 500;
+  border: 1.5px solid var(--border); background: var(--card); cursor: pointer;
+  color: #1a1a1a; white-space: nowrap;
+}
+.ftab.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+/* ── GRID CARDS (Mobile v1) ──────────────── */
+.cat-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 0 14px 24px;
+}
+.cat-card {
+  background: var(--card); border: 2px solid var(--border); border-radius: 12px;
+  padding: 12px 12px 10px; cursor: pointer; display: flex; flex-direction: column; gap: 6px;
+  position: relative; overflow: hidden;
+}
+.cat-card::before {
+  content: ''; position: absolute; right: 0; top: 0; bottom: 0; width: 4px; border-radius: 0 10px 10px 0;
+}
+.cat-card.done { border-color: rgba(34,197,94,0.3); }
+.cat-card.done::before { background: var(--done); }
+.cat-card.prog { border-color: rgba(245,194,0,0.45); }
+.cat-card.prog::before { background: var(--prog); }
+.cat-card.none::before { background: #d1d5db; }
+.cat-badge {
+  font-size: 9px; font-weight: 600; padding: 2px 7px; border-radius: 10px; align-self: flex-start;
+}
+.done .cat-badge { background: rgba(34,197,94,0.12); color: #16a34a; }
+.prog .cat-badge { background: rgba(245,194,0,0.18); color: #b45309; }
+.none .cat-badge { background: #f3f4f6; color: var(--muted); }
+.cat-name { font-size: 12px; font-weight: 700; color: var(--dark); line-height: 1.35; }
+.cat-q { font-size: 10px; color: var(--muted); }
+.cat-pb-bg { width: 100%; height: 5px; background: #e9eaeb; border-radius: 10px; overflow: hidden; }
+.cat-pb-fill { height: 100%; border-radius: 10px; }
+.done .cat-pb-fill { background: var(--done); }
+.prog .cat-pb-fill { background: var(--prog); }
+.none .cat-pb-fill { background: #d1d5db; width: 0% !important; }
+.cat-row { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); margin-top: 3px; }
+
+/* ── LIST CARDS (Mobile v2) ──────────────── */
+.cat-list { display: flex; flex-direction: column; gap: 8px; padding: 0 14px 24px; }
+.cat-list-item {
+  background: var(--card); border: 1.5px solid var(--border); border-radius: 12px;
+  padding: 12px 14px; cursor: pointer; display: flex; align-items: center; gap: 12px;
+  position: relative; overflow: hidden;
+}
+.cat-list-item::after {
+  content: '‹'; position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+  font-size: 18px; color: #c4c4c4;
+}
+.cat-list-item.done { border-right: 4px solid var(--done); }
+.cat-list-item.prog { border-right: 4px solid var(--prog); }
+.cat-list-item.none { border-right: 4px solid #d1d5db; }
+.cli-icon {
+  width: 38px; height: 38px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+}
+.done .cli-icon { background: rgba(34,197,94,0.1); }
+.prog .cli-icon { background: rgba(245,194,0,0.15); }
+.none .cli-icon { background: #f3f4f6; }
+.cli-body { flex: 1; min-width: 0; }
+.cli-name { font-size: 13px; font-weight: 700; color: var(--dark); margin-bottom: 3px; }
+.cli-meta { font-size: 10px; color: var(--muted); margin-bottom: 5px; }
+.cli-pb-bg { width: 100%; height: 4px; background: #e9eaeb; border-radius: 10px; overflow: hidden; }
+.cli-pb-fill { height: 100%; border-radius: 10px; }
+.done .cli-pb-fill { background: var(--done); }
+.prog .cli-pb-fill { background: var(--prog); }
+.none .cli-pb-fill { background: #d1d5db; width: 0% !important; }
+
+/* ── BOTTOM TAB BAR ──────────────────────── */
+.bottom-bar {
+  position: sticky; bottom: 0; background: var(--card);
+  border-top: 1.5px solid var(--border); display: flex; align-items: center;
+  justify-content: space-around; padding: 8px 0 4px; z-index: 90;
+}
+.btab { display: flex; flex-direction: column; align-items: center; gap: 3px; flex: 1; cursor: pointer; }
+.btab-icon { width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; color: var(--muted); }
+.btab-label { font-size: 9.5px; color: var(--muted); font-weight: 500; }
+.btab.active .btab-icon, .btab.active .btab-label { color: var(--blue); }
+.btab.active .btab-label { font-weight: 700; }
+
+/* ── DESKTOP LAYOUT ──────────────────────── */
+.dt-layout {
+  display: flex; height: 780px; direction: rtl; overflow: hidden;
+}
+/* Sidebar */
+.dt-sidebar {
+  width: 220px; background: var(--dark); flex-shrink: 0;
+  display: flex; flex-direction: column; overflow-y: auto;
+}
+.dt-sidebar-header {
+  padding: 20px 16px 16px; border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.dt-user {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 16px; border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.dt-avatar {
+  width: 36px; height: 36px; border-radius: 50%; background: var(--yellow);
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-size: 14px; color: var(--dark); flex-shrink: 0;
+}
+.dt-user-name { font-size: 12px; font-weight: 600; color: #fff; }
+.dt-user-email { font-size: 10px; color: rgba(255,255,255,0.4); }
+.dt-nav { flex: 1; padding: 8px 0; }
+.dt-nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 11px 16px; color: rgba(255,255,255,0.65); font-size: 13px; cursor: pointer;
+  border-right: 3px solid transparent; transition: all 0.15s;
+}
+.dt-nav-item.active {
+  color: #fff; background: rgba(255,255,255,0.08); border-right-color: var(--yellow);
+}
+.dt-nav-item:hover { color: #fff; background: rgba(255,255,255,0.05); }
+
+/* Main content */
+.dt-main { flex: 1; overflow-y: auto; background: #f4f5f7; scrollbar-width: thin; }
+.dt-topbar {
+  background: #fff; border-bottom: 1.5px solid var(--border);
+  padding: 14px 24px; display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 10;
+}
+.dt-topbar h1 { font-size: 18px; font-weight: 700; color: var(--dark); }
+.dt-topbar-right { display: flex; align-items: center; gap: 10px; }
+.dt-search {
+  display: flex; align-items: center; gap: 8px; background: #f3f4f6;
+  border: 1.5px solid var(--border); border-radius: 8px; padding: 7px 12px;
+  font-size: 12px; color: var(--muted); width: 180px;
+}
+.dt-content { padding: 20px 24px; }
+
+/* Desktop stats */
+.dt-stats {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-bottom: 20px;
+}
+.dt-stat {
+  background: #fff; border: 1.5px solid var(--border); border-radius: 12px;
+  padding: 14px 16px; direction: rtl;
+}
+.dt-stat-label { font-size: 11px; color: var(--muted); margin-bottom: 6px; }
+.dt-stat-value { font-size: 26px; font-weight: 700; color: var(--dark); }
+.dt-stat-sub { font-size: 10px; color: var(--muted); margin-top: 3px; }
+
+/* Desktop resume */
+.dt-resume {
+  background: #fff; border: 2px solid rgba(245,194,0,0.4); border-radius: 14px;
+  padding: 18px 20px; margin-bottom: 20px; position: relative; overflow: hidden;
+  direction: rtl;
+}
+.dt-resume::before {
+  content: ''; position: absolute; top: 0; right: 0; left: 0; height: 3px; background: var(--yellow);
+}
+.dt-resume-inner { display: flex; align-items: center; gap: 24px; }
+.dt-resume-text { flex: 1; }
+.dt-resume-title { font-size: 11px; color: var(--muted); margin-bottom: 4px; }
+.dt-resume-name { font-size: 18px; font-weight: 700; color: var(--dark); margin-bottom: 2px; }
+.dt-resume-sub { font-size: 12px; color: var(--muted); margin-bottom: 10px; }
+.dt-resume-prog { flex: 1; }
+.dt-resume-stats { display: flex; gap: 12px; align-items: center; }
+.dt-resume-stat { text-align: center; }
+.dt-resume-stat .v { font-size: 20px; font-weight: 700; }
+.dt-resume-stat .l { font-size: 10px; color: var(--muted); }
+.dt-resume-btn {
+  padding: 11px 28px; background: var(--blue); color: #fff; border: none;
+  border-radius: 10px; font-size: 13px; font-weight: 700; font-family: Heebo, sans-serif;
+  cursor: pointer; white-space: nowrap; flex-shrink: 0;
+}
+
+/* Desktop categories section */
+.dt-sec-header {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px;
+}
+.dt-sec-title { font-size: 16px; font-weight: 700; color: var(--dark); }
+.dt-filter-tabs { display: flex; gap: 8px; }
+.dt-ftab {
+  padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 500;
+  border: 1.5px solid var(--border); background: #fff; cursor: pointer; color: #1a1a1a;
+}
+.dt-ftab.active { background: var(--blue); color: #fff; border-color: var(--blue); }
+
+/* Desktop grid: 4 cols */
+.dt-cat-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+}
+.dt-cat-card {
+  background: #fff; border: 1.5px solid var(--border); border-radius: 12px;
+  padding: 14px 14px 12px; cursor: pointer; display: flex; flex-direction: column;
+  gap: 6px; position: relative; overflow: hidden; direction: rtl;
+  transition: box-shadow 0.15s, transform 0.15s;
+}
+.dt-cat-card:hover { box-shadow: 0 4px 16px rgba(26,60,143,0.12); transform: translateY(-2px); }
+.dt-cat-card::before {
+  content: ''; position: absolute; top: 0; right: 0; left: 0; height: 3px;
+}
+.dt-cat-card.done::before { background: var(--done); }
+.dt-cat-card.prog::before { background: var(--prog); }
+.dt-cat-card.none::before { background: #d1d5db; }
+.dt-cat-card.done { border-top-color: rgba(34,197,94,0.3); }
+.dt-cat-card.prog { border-top-color: rgba(245,194,0,0.3); }
+.dt-badge {
+  font-size: 10px; font-weight: 600; padding: 3px 9px; border-radius: 10px; align-self: flex-start;
+}
+.done .dt-badge { background: rgba(34,197,94,0.12); color: #16a34a; }
+.prog .dt-badge { background: rgba(245,194,0,0.18); color: #b45309; }
+.none .dt-badge { background: #f3f4f6; color: var(--muted); }
+.dt-cat-name { font-size: 13px; font-weight: 700; color: var(--dark); line-height: 1.35; }
+.dt-cat-q { font-size: 11px; color: var(--muted); }
+.dt-pb-bg { width: 100%; height: 5px; background: #e9eaeb; border-radius: 10px; overflow: hidden; margin-top: 2px; }
+.dt-pb-fill { height: 100%; border-radius: 10px; }
+.done .dt-pb-fill { background: var(--done); }
+.prog .dt-pb-fill { background: var(--prog); }
+.none .dt-pb-fill { background: #d1d5db; width: 0% !important; }
+.dt-cat-row { display: flex; justify-content: space-between; font-size: 10px; color: var(--muted); margin-top: 2px; }
+</style>
+</head>
+<body>
+<div class="canvas">
+  <div class="canvas-title">📐 כל הגרסאות – Wireframe</div>
+  <div class="canvas-sub">Mobile v1 (Grid) · Mobile v2 (List) · Desktop Web</div>
+
+  <!-- ─── THREE VERSIONS ─────────────────────── -->
+  <div class="versions-row">
+
+    <!-- ══════════════════════════════════════ -->
+    <!--  MOBILE V1 – GRID                      -->
+    <!-- ══════════════════════════════════════ -->
+    <div class="version-col">
+      <div class="version-label">📱 Mobile v1</div>
+      <div class="version-sub">Grid 2 עמודות · הגרסה הנוכחית</div>
+      <div class="phone">
+        <div class="phone-notch"><div class="phone-pill"></div></div>
+        <div class="phone-screen">
+          <!-- NAV -->
+          <div class="top-nav">
+            <div class="hamburger"><span></span><span></span><span></span></div>
+            <div class="lockup">
+              <svg viewBox="0 0 100 96" fill="none" width="26" height="26">
+                <polygon points="1,52 14,38 43,64 28,79" fill="#F5C200"></polygon>
+                <polygon points="30,81 18,67 82,10 94,24" fill="#FAFAFA"></polygon>
+                <circle cx="7.5" cy="44" r="6.5" fill="#F5C200"></circle>
+                <circle cx="88" cy="17" r="6.5" fill="#FAFAFA"></circle>
+              </svg>
+              <div class="lockup-text">
+                <div class="logo-name">עוברים רישוי</div>
+                <div class="logo-sub">הכנה לרישיון חשמלאי</div>
+              </div>
+            </div>
+            <div class="nav-avatar">י</div>
+          </div>
+          <!-- PAGE TITLE -->
+          <div class="page-title-bar">
+            <h1>סקירה כללית</h1>
+            <p>מוכן לתרגל היום?</p>
+          </div>
+          <!-- STATS 2 -->
+          <div class="stats-row">
+            <div class="stat-card">
+              <div class="stat-label">מבחנים שהושלמו</div>
+              <div class="stat-value">4</div>
+              <div class="stat-sub">מבחנים בלבד</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-label">ציון אחרון</div>
+              <div class="stat-value">67%</div>
+              <div class="stat-sub" style="color:#22c55e;">↑ 17% מהקודם</div>
+            </div>
+          </div>
+          <!-- DIVIDER -->
+          <div class="divider"></div>
+          <!-- RESUME -->
+          <div class="resume-section">
+            <div class="resume-label">⚡ המשך מאיפה שעצרת</div>
+            <div class="resume-card">
+              <div class="resume-badge">בביצוע</div>
+              <div class="resume-name">תקנים ונהלים</div>
+              <div class="resume-meta">המשך מאיפה שעצרת · לפני יומיים</div>
+              <div class="prog-bg"><div class="prog-fill" style="width:48%"></div></div>
+              <div class="prog-row"><span>48%</span><span>23 / 48 שאלות</span></div>
+              <div class="mini-stats">
+                <div class="mini-stat" style="background:#f8fafc;"><div class="v" style="color:var(--blue)">63%</div><div class="l">הצלחה</div></div>
+                <div class="mini-stat" style="background:#f0fdf4;"><div class="v" style="color:#16a34a">15</div><div class="l">נכון</div></div>
+                <div class="mini-stat" style="background:#fef2f2;"><div class="v" style="color:#ef4444">8</div><div class="l">שגוי</div></div>
+              </div>
+              <button class="resume-btn">▶ המשך תרגול</button>
+            </div>
+          </div>
+          <!-- SECTION HEADER -->
+          <div class="sec-header" style="margin-top:4px;">
+            <div class="sec-title">קטגוריות תרגול</div>
+            <div class="sec-count">29 קטגוריות</div>
+          </div>
+          <!-- FILTERS -->
+          <div class="filter-tabs">
+            <div class="ftab active">הכל</div>
+            <div class="ftab">הושלם ✅</div>
+            <div class="ftab">בביצוע 🟡</div>
+            <div class="ftab">לא התחלתי</div>
+          </div>
+          <!-- GRID -->
+          <div class="cat-grid" id="v1grid"></div>
+          <!-- BOTTOM BAR -->
+          <div class="bottom-bar">
+            <div class="btab active"><div class="btab-icon"><svg viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><rect x="2" y="2" width="7" height="7" rx="1.5"/><rect x="11" y="2" width="7" height="7" rx="1.5"/><rect x="2" y="11" width="7" height="7" rx="1.5"/><rect x="11" y="11" width="7" height="7" rx="1.5"/></svg></div><div class="btab-label">סקירה</div></div>
+            <div class="btab"><div class="btab-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20"><path d="M4 4h12M4 8h8M4 12h10M4 16h6"/></svg></div><div class="btab-label">תרגול</div></div>
+            <div class="btab"><div class="btab-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M7 2v4M13 2v4M3 9h14"/></svg></div><div class="btab-label">מבחנים</div></div>
+            <div class="btab"><div class="btab-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20"><circle cx="10" cy="10" r="7"/><path d="M10 6v4l3 2"/></svg></div><div class="btab-label">היסטוריה</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <!--  MOBILE V2 – LIST                      -->
+    <!-- ══════════════════════════════════════ -->
+    <div class="version-col">
+      <div class="version-label">📱 Mobile v2</div>
+      <div class="version-sub">רשימה מפורטת · מידע נוסף בכל שורה</div>
+      <div class="phone">
+        <div class="phone-notch"><div class="phone-pill"></div></div>
+        <div class="phone-screen">
+          <!-- NAV -->
+          <div class="top-nav" style="background:var(--blue);">
+            <div class="hamburger"><span></span><span></span><span></span></div>
+            <div class="lockup">
+              <svg viewBox="0 0 100 96" fill="none" width="26" height="26">
+                <polygon points="1,52 14,38 43,64 28,79" fill="#F5C200"></polygon>
+                <polygon points="30,81 18,67 82,10 94,24" fill="#FAFAFA"></polygon>
+                <circle cx="7.5" cy="44" r="6.5" fill="#F5C200"></circle>
+                <circle cx="88" cy="17" r="6.5" fill="#FAFAFA"></circle>
+              </svg>
+              <div class="lockup-text">
+                <div class="logo-name">עוברים רישוי</div>
+                <div class="logo-sub">הכנה לרישיון חשמלאי</div>
+              </div>
+            </div>
+            <div class="nav-avatar">י</div>
+          </div>
+
+          <!-- HERO PROGRESS BANNER -->
+          <div style="background:var(--blue);padding:0 16px 18px;direction:rtl;">
+            <div style="font-size:13px;color:rgba(255,255,255,0.7);margin-bottom:8px;">ההתקדמות הכללית שלך</div>
+            <div style="display:flex;align-items:flex-end;gap:12px;margin-bottom:10px;">
+              <div style="font-size:36px;font-weight:700;color:#fff;line-height:1;">37%</div>
+              <div style="font-size:12px;color:rgba(255,255,255,0.6);padding-bottom:6px;">196 / 520 שאלות</div>
+            </div>
+            <div style="background:rgba(255,255,255,0.2);border-radius:10px;height:8px;overflow:hidden;">
+              <div style="width:37%;height:100%;background:var(--yellow);border-radius:10px;"></div>
+            </div>
+            <!-- mini stats -->
+            <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:14px;">
+              <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:8px;text-align:center;">
+                <div style="font-size:16px;font-weight:700;color:#fff;">4</div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.6);">מבחנים</div>
+              </div>
+              <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:8px;text-align:center;">
+                <div style="font-size:16px;font-weight:700;color:#fff;">67%</div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.6);">ציון אחרון</div>
+              </div>
+              <div style="background:rgba(255,255,255,0.1);border-radius:10px;padding:8px;text-align:center;">
+                <div style="font-size:16px;font-weight:700;color:var(--yellow);">8</div>
+                <div style="font-size:9px;color:rgba(255,255,255,0.6);">קטגוריות פתוחות</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- RESUME MINI -->
+          <div style="padding:12px 14px 0;direction:rtl;">
+            <div style="background:#fff;border:2px solid rgba(245,194,0,0.4);border-radius:12px;padding:12px 14px;display:flex;align-items:center;gap:10px;position:relative;overflow:hidden;">
+              <div style="position:absolute;top:0;right:0;left:0;height:3px;background:var(--yellow);"></div>
+              <div style="flex:1;">
+                <div style="font-size:10px;color:var(--muted);margin-bottom:2px;">⚡ המשך מאיפה שעצרת</div>
+                <div style="font-size:14px;font-weight:700;color:var(--dark);">תקנים ונהלים</div>
+                <div style="font-size:10px;color:var(--muted);">23 / 48 שאלות · 48%</div>
+              </div>
+              <button style="padding:8px 14px;background:var(--blue);color:#fff;border:none;border-radius:8px;font-size:12px;font-weight:700;font-family:Heebo,sans-serif;white-space:nowrap;">▶ המשך</button>
+            </div>
+          </div>
+
+          <!-- FILTERS -->
+          <div class="sec-header" style="margin-top:12px;">
+            <div class="sec-title">קטגוריות</div>
+            <div class="sec-count">29</div>
+          </div>
+          <div class="filter-tabs">
+            <div class="ftab active">הכל</div>
+            <div class="ftab">הושלם</div>
+            <div class="ftab">בביצוע</div>
+            <div class="ftab">לא התחיל</div>
+          </div>
+          <!-- LIST -->
+          <div class="cat-list" id="v2list"></div>
+
+          <!-- BOTTOM BAR -->
+          <div class="bottom-bar">
+            <div class="btab active"><div class="btab-icon"><svg viewBox="0 0 20 20" fill="currentColor" width="20" height="20"><rect x="2" y="2" width="7" height="7" rx="1.5"/><rect x="11" y="2" width="7" height="7" rx="1.5"/><rect x="2" y="11" width="7" height="7" rx="1.5"/><rect x="11" y="11" width="7" height="7" rx="1.5"/></svg></div><div class="btab-label">סקירה</div></div>
+            <div class="btab"><div class="btab-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20"><path d="M4 4h12M4 8h8M4 12h10M4 16h6"/></svg></div><div class="btab-label">תרגול</div></div>
+            <div class="btab"><div class="btab-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20"><rect x="3" y="4" width="14" height="13" rx="2"/><path d="M7 2v4M13 2v4M3 9h14"/></svg></div><div class="btab-label">מבחנים</div></div>
+            <div class="btab"><div class="btab-icon"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8" width="20" height="20"><circle cx="10" cy="10" r="7"/><path d="M10 6v4l3 2"/></svg></div><div class="btab-label">היסטוריה</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══════════════════════════════════════ -->
+  <!--  DESKTOP WEB                           -->
+  <!-- ══════════════════════════════════════ -->
+  <div class="version-col" style="width:100%;max-width:1140px;margin-top:48px;">
+    <div class="version-label">🖥️ Desktop Web</div>
+    <div class="version-sub">Sidebar קבוע · 4 עמודות · מידע מלא</div>
+    <div class="desktop-shell">
+      <div class="desktop-titlebar">
+        <div class="titlebar-dot" style="background:#ff5f57;"></div>
+        <div class="titlebar-dot" style="background:#ffbd2e;"></div>
+        <div class="titlebar-dot" style="background:#28ca41;"></div>
+        <div class="titlebar-url">ovrim-rish ui.app / overview</div>
+      </div>
+      <div class="dt-layout">
+        <!-- SIDEBAR -->
+        <div class="dt-sidebar">
+          <div class="dt-sidebar-header">
+            <div class="lockup">
+              <svg viewBox="0 0 100 96" fill="none" width="32" height="32">
+                <polygon points="1,52 14,38 43,64 28,79" fill="#F5C200"></polygon>
+                <polygon points="30,81 18,67 82,10 94,24" fill="#fff"></polygon>
+                <circle cx="7.5" cy="44" r="6.5" fill="#F5C200"></circle>
+                <circle cx="88" cy="17" r="6.5" fill="#fff"></circle>
+              </svg>
+              <div class="lockup-text">
+                <div class="logo-name">עוברים רישוי</div>
+                <div class="logo-sub">הכנה לרישיון חשמלאי</div>
+              </div>
+            </div>
+          </div>
+          <div class="dt-user">
+            <div class="dt-avatar">י</div>
+            <div>
+              <div class="dt-user-name">יוסי מ׳</div>
+              <div class="dt-user-email"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5b2234282832363a36321b3c363a323775383436">[email&#160;protected]</a></div>
+            </div>
+          </div>
+          <nav class="dt-nav">
+            <div class="dt-nav-item active">⊞ סקירה כללית</div>
+            <div class="dt-nav-item">📖 תרגול</div>
+            <div class="dt-nav-item">📋 מבחנים</div>
+            <div class="dt-nav-item">🕐 היסטוריה</div>
+            <div class="dt-nav-item">📊 תובנות</div>
+            <div class="dt-nav-item">♡ מועדפים</div>
+            <div class="dt-nav-item">🚩 שאלות קשות</div>
+          </nav>
+        </div>
+
+        <!-- MAIN -->
+        <div class="dt-main">
+          <!-- TOPBAR -->
+          <div class="dt-topbar">
+            <h1>סקירה כללית</h1>
+            <div class="dt-topbar-right">
+              <div class="dt-search">🔍 חפש קטגוריה...</div>
+              <div style="padding:8px 18px;background:var(--blue);color:#fff;border-radius:8px;font-size:12px;font-weight:700;cursor:pointer;">+ מבחן חדש</div>
+            </div>
+          </div>
+
+          <div class="dt-content">
+            <!-- STATS: 2 KPI + visual progress widget -->
+            <div style="display:grid;grid-template-columns:1fr 1fr 2fr;gap:14px;margin-bottom:20px;direction:rtl;">
+
+              <!-- KPI 1 – מבחנים -->
+              <!-- KPI 1 – מבחנים -->
+              <div class="dt-stat" style="display:flex;flex-direction:column;gap:10px;">
+                <div class="dt-stat-label">מבחנים שהושלמו</div>
+                <div style="display:flex;align-items:center;justify-content:space-between;">
+                  <div style="font-size:52px;font-weight:700;color:var(--dark);line-height:1;">4</div>
+                  <!-- Trophy icon – single, visible, yellow -->
+                  <div style="width:52px;height:52px;background:#FFF8D6;border-radius:14px;display:flex;align-items:center;justify-content:center;">
+                    <svg viewBox="0 0 32 32" fill="none" width="28" height="28">
+                      <path d="M8 4h16v12a8 8 0 01-16 0V4z" fill="#F5C200"/>
+                      <path d="M4 6h4v6a4 4 0 01-4 0V6z" fill="#F5C200" opacity="0.5"/>
+                      <path d="M28 6h-4v6a4 4 0 004 0V6z" fill="#F5C200" opacity="0.5"/>
+                      <rect x="13" y="20" width="6" height="4" fill="#F5C200"/>
+                      <rect x="10" y="24" width="12" height="3" rx="1.5" fill="#F5C200"/>
+                    </svg>
+                  </div>
+                </div>
+                <div style="font-size:11px;color:var(--muted);">מתוך 10 מבחני סימולציה</div>
+              </div>
+
+              <!-- KPI 2 – ציון אחרון עם Donut -->
+              <div class="dt-stat" style="display:flex;flex-direction:column;gap:10px;">
+                <div class="dt-stat-label" style="text-align: center">ציון אחרון</div>
+                <div style="display:flex;align-items:center;gap:16px;">
+                  <!-- Donut – 67% fill. circumference = 2π×32 ≈ 201. fill = 201×0.67 ≈ 135 -->
+                  <svg viewBox="0 0 80 80" width="72" height="72" style="flex-shrink: 0; stroke-width: 1px; width: 84px; height: 87px">
+                    <circle cx="40" cy="40" r="32" fill="none" stroke="#e9eaeb" stroke-width="8"/>
+                    <circle cx="40" cy="40" r="32" fill="none" stroke="#1A3C8F" stroke-width="8"
+                      stroke-dasharray="135 66"
+                      stroke-linecap="round"
+                      transform="rotate(-90 40 40)"/>
+                    <text x="40" y="37" text-anchor="middle" font-size="15" font-weight="700" fill="#0D1F4E" font-family="Heebo,sans-serif">67%</text>
+                    <text x="40" y="51" text-anchor="middle" font-size="8" fill="#888" font-family="Heebo,sans-serif">ציון</text>
+                  </svg>
+                  <div style="display:flex;flex-direction:column;gap:6px;">
+                    <div style="background: #f0fdf4; color: #16a34a; font-size: 9px; font-weight: 700; padding: 4px 11px; border-radius: 20px; display: inline-block; width: 50.9306px">↑ 17 נקודות</div>
+                    <div style="font-size: 10px; color: var(--muted); padding: 0px; opacity: 0.72">מהמבחן הקודם</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PROGRESS WIDGET -->
+              <div style="background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:16px 18px;direction:rtl;">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+                  <div style="font-size:13px;font-weight:700;color:var(--dark);">התקדמות כללית</div>
+                  <div style="font-size:12px;color:var(--muted);">196 / 520 שאלות</div>
+                </div>
+                <!-- Segmented progress bar -->
+                <div style="display:flex;height:12px;border-radius:10px;overflow:hidden;gap:2px;margin-bottom:10px;">
+                  <div style="flex:7;background:var(--done);border-radius:10px 0 0 10px;"></div>
+                  <div style="flex:4;background:var(--prog);"></div>
+                  <div style="flex:18;background:#e9eaeb;border-radius:0 10px 10px 0;"></div>
+                </div>
+                <!-- Legend + counts -->
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+                  <div style="text-align:center;background:#f0fdf4;border-radius:8px;padding:8px;">
+                    <div style="font-size:18px;font-weight:700;color:var(--done);">7</div>
+                    <div style="font-size:10px;color:#16a34a;font-weight:600;">הושלמו</div>
+                    <div style="font-size:9px;color:var(--muted);">קטגוריות</div>
+                  </div>
+                  <div style="text-align:center;background:#fffbeb;border-radius:8px;padding:8px;">
+                    <div style="font-size:18px;font-weight:700;color:#b45309;">8</div>
+                    <div style="font-size:10px;color:#b45309;font-weight:600;">בביצוע</div>
+                    <div style="font-size:9px;color:var(--muted);">קטגוריות</div>
+                  </div>
+                  <div style="text-align:center;background:#f9fafb;border-radius:8px;padding:8px;">
+                    <div style="font-size:18px;font-weight:700;color:#6b7280;">14</div>
+                    <div style="font-size:10px;color:#6b7280;font-weight:600;">לא התחלתי</div>
+                    <div style="font-size:9px;color:var(--muted);">קטגוריות</div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- RESUME BANNER -->
+            <div class="dt-resume">
+              <div class="dt-resume-inner">
+                <div class="dt-resume-text">
+                  <div class="dt-resume-title">⚡ המשך מאיפה שעצרת</div>
+                  <div class="dt-resume-name">תקנים ונהלים</div>
+                  <div class="dt-resume-sub">המשך מאיפה שעצרת · לפני יומיים</div>
+                  <div class="prog-bg" style="margin-bottom:5px;"><div class="prog-fill" style="width:48%"></div></div>
+                  <div class="prog-row"><span>48%</span><span>23 / 48 שאלות</span></div>
+                </div>
+                <div class="dt-resume-stats" style="gap:20px;">
+                  <div class="dt-resume-stat"><div class="v" style="color:var(--blue);">63%</div><div class="l">הצלחה</div></div>
+                  <div class="dt-resume-stat"><div class="v" style="color:#22c55e;">15</div><div class="l">נכון</div></div>
+                  <div class="dt-resume-stat"><div class="v" style="color:#ef4444;">8</div><div class="l">שגוי</div></div>
+                </div>
+                <button class="dt-resume-btn">▶ המשך תרגול</button>
+              </div>
+            </div>
+
+            <!-- CATEGORIES HEADER -->
+            <div class="dt-sec-header">
+              <div class="dt-sec-title">קטגוריות תרגול <span style="font-size:13px;color:var(--muted);font-weight:400;">(29)</span></div>
+              <div class="dt-filter-tabs">
+                <div class="dt-ftab active">הכל</div>
+                <div class="dt-ftab">הושלם</div>
+                <div class="dt-ftab">בביצוע</div>
+                <div class="dt-ftab">לא התחיל</div>
+              </div>
+            </div>
+
+            <!-- 4-COL GRID -->
+            <div class="dt-cat-grid" id="dtgrid"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTES -->
+  <div style="max-width:1100px;width:100%;background:#fff;border:2px solid #1a1a1a;border-radius:10px;padding:20px 24px;direction:rtl;box-shadow:4px 4px 0 rgba(0,0,0,0.1);margin-top:40px;">
+    <div style="font-family:'Caveat',cursive;font-size:22px;font-weight:700;color:var(--blue);margin-bottom:16px;">📝 הבדלים בין הגרסאות</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;">
+      <div style="background:#fffbeb;border-right:3px solid var(--yellow);padding:12px 14px;border-radius:0 8px 8px 0;">
+        <div style="font-family:'Caveat',cursive;font-size:17px;font-weight:700;color:#92400e;margin-bottom:6px;">📱 Mobile v1 – Grid</div>
+        <div style="font-size:12px;color:#78350f;line-height:1.7;">
+          2 עמודות, קומפקטי<br>
+          מידע: שם + X/Y + progress<br>
+          ניווט: Bottom Bar + Drawer<br>
+          מתאים לסריקה מהירה
+        </div>
+      </div>
+      <div style="background:#eff6ff;border-right:3px solid var(--blue);padding:12px 14px;border-radius:0 8px 8px 0;">
+        <div style="font-family:'Caveat',cursive;font-size:17px;font-weight:700;color:#1e40af;margin-bottom:6px;">📱 Mobile v2 – List</div>
+        <div style="font-size:12px;color:#1e3a8a;line-height:1.7;">
+          Hero banner עם התקדמות כללית<br>
+          רשימה מפורטת עם אייקון + progress<br>
+          מידע נוסף גלוי בכל שורה<br>
+          מתאים לעיון מעמיק
+        </div>
+      </div>
+      <div style="background:#f0fdf4;border-right:3px solid #22c55e;padding:12px 14px;border-radius:0 8px 8px 0;">
+        <div style="font-family:'Caveat',cursive;font-size:17px;font-weight:700;color:#166534;margin-bottom:6px;">🖥️ Desktop Web</div>
+        <div style="font-size:12px;color:#14532d;line-height:1.7;">
+          Sidebar קבוע עם ניווט מלא<br>
+          4 עמודות קטגוריות<br>
+          4 כרטיסי סטטיסטיקה + חיפוש<br>
+          כל המידע גלוי בבת אחת
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const categories = [
+  { name: "תקנים ונהלים", q: 48, done: 23, state: "prog", icon: "📋" },
+  { name: "בטיחות חשמלית", q: 36, done: 36, state: "done", icon: "🛡️" },
+  { name: "תורת החשמל", q: 52, done: 52, state: "done", icon: "⚡" },
+  { name: "מוליכים וכבלים", q: 30, done: 8, state: "prog", icon: "🔌" },
+  { name: "לוחות חלוקה", q: 42, done: 0, state: "none", icon: "🗂️" },
+  { name: "הגנות והפסקות", q: 38, done: 0, state: "none", icon: "🔒" },
+  { name: "תאורה", q: 28, done: 28, state: "done", icon: "💡" },
+  { name: "מנועים חשמליים", q: 44, done: 15, state: "prog", icon: "⚙️" },
+  { name: "מערכות הארקה", q: 34, done: 0, state: "none", icon: "🌍" },
+  { name: "צינורות ואביזרים", q: 26, done: 3, state: "prog", icon: "🔧" },
+  { name: "שקעים ומפסקים", q: 20, done: 20, state: "done", icon: "🔋" },
+  { name: "מדידות חשמליות", q: 32, done: 0, state: "none", icon: "📏" },
+  { name: "חשמל תלת-פאזי", q: 40, done: 12, state: "prog", icon: "🔺" },
+  { name: "מערכות סולאריות", q: 24, done: 0, state: "none", icon: "☀️" },
+  { name: "גנרטורים", q: 18, done: 18, state: "done", icon: "🔄" },
+  { name: "UPS ואל-פסק", q: 16, done: 0, state: "none", icon: "🔋" },
+  { name: "חדרי חשמל", q: 30, done: 5, state: "prog", icon: "🏠" },
+  { name: "טרנספורמטורים", q: 28, done: 0, state: "none", icon: "🔁" },
+  { name: "חישובי עומס", q: 36, done: 36, state: "done", icon: "📊" },
+  { name: "כבלי בקרה", q: 22, done: 0, state: "none", icon: "📡" },
+  { name: "מיתוג בינוני", q: 20, done: 4, state: "prog", icon: "⚡" },
+  { name: "מערכות כיבוי אש", q: 18, done: 0, state: "none", icon: "🔥" },
+  { name: "חשמל בנייה", q: 32, done: 32, state: "done", icon: "🏗️" },
+  { name: "רדיו ותקשורת", q: 14, done: 0, state: "none", icon: "📻" },
+  { name: "תחנות כוח", q: 22, done: 0, state: "none", icon: "🏭" },
+  { name: "אוטומציה ו-PLC", q: 28, done: 7, state: "prog", icon: "🤖" },
+  { name: "חישובי קצר", q: 18, done: 0, state: "none", icon: "📐" },
+  { name: "תכנון רשתות", q: 24, done: 0, state: "none", icon: "🕸️" },
+  { name: "חוקי חשמל", q: 40, done: 40, state: "done", icon: "📜" },
+];
+
+const stateLabel = { done: "הושלם ✓", prog: "בביצוע", none: "לא התחיל" };
+
+// V1 – Grid
+const v1 = document.getElementById("v1grid");
+categories.forEach(c => {
+  const pct = c.q > 0 ? Math.round(c.done / c.q * 100) : 0;
+  const el = document.createElement("div");
+  el.className = `cat-card ${c.state}`;
+  el.innerHTML = `
+    <div class="cat-badge">${stateLabel[c.state]}</div>
+    <div class="cat-name">${c.name}</div>
+    <div class="cat-q">${c.q} שאלות</div>
+    <div class="cat-pb-bg"><div class="cat-pb-fill" style="width:${pct}%"></div></div>
+    <div class="cat-row"><span>${pct}%</span><span>${c.done}/${c.q}</span></div>
+  `;
+  v1.appendChild(el);
+});
+
+// V2 – List
+const v2 = document.getElementById("v2list");
+categories.forEach(c => {
+  const pct = c.q > 0 ? Math.round(c.done / c.q * 100) : 0;
+  const el = document.createElement("div");
+  el.className = `cat-list-item ${c.state}`;
+  el.innerHTML = `
+    <div class="cli-icon">${c.icon}</div>
+    <div class="cli-body">
+      <div class="cli-name">${c.name}</div>
+      <div class="cli-meta">${stateLabel[c.state]} · ${c.done}/${c.q} שאלות</div>
+      <div class="cli-pb-bg"><div class="cli-pb-fill" style="width:${pct}%"></div></div>
+    </div>
+  `;
+  v2.appendChild(el);
+});
+
+// Desktop Grid
+const dt = document.getElementById("dtgrid");
+categories.forEach(c => {
+  const pct = c.q > 0 ? Math.round(c.done / c.q * 100) : 0;
+  const el = document.createElement("div");
+  el.className = `dt-cat-card ${c.state}`;
+  el.innerHTML = `
+    <div class="dt-badge">${stateLabel[c.state]}</div>
+    <div class="dt-cat-name">${c.name}</div>
+    <div class="dt-cat-q">${c.q} שאלות</div>
+    <div class="dt-pb-bg"><div class="dt-pb-fill" style="width:${pct}%"></div></div>
+    <div class="dt-cat-row"><span>${pct}%</span><span>${c.done}/${c.q}</span></div>
+  `;
+  dt.appendChild(el);
+});
+</script>
+</body>
+</html>
