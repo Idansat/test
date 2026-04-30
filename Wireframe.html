@@ -714,82 +714,76 @@ body {
 
           <div class="dt-content">
             <!-- STATS: 2 KPI + visual progress widget -->
-            <div style="display:grid;grid-template-columns:1fr 1fr 2fr;gap:14px;margin-bottom:20px;direction:rtl;">
+<!-- STATS: Progress on Right, Combined Tests on Left -->
+            <div style="display:grid;grid-template-columns:2.5fr 1fr;gap:16px;margin-bottom:20px;direction:rtl;">
 
-              <!-- KPI 1 – מבחנים -->
-              <!-- KPI 1 – מבחנים -->
-              <div class="dt-stat" style="display:flex;flex-direction:column;gap:10px;">
-                <div class="dt-stat-label">מבחנים שהושלמו</div>
-                <div style="display:flex;align-items:center;justify-content:space-between;">
-                  <div style="font-size:52px;font-weight:700;color:var(--dark);line-height:1;">4</div>
-                  <!-- Trophy icon – single, visible, yellow -->
-                  <div style="width:52px;height:52px;background:#FFF8D6;border-radius:14px;display:flex;align-items:center;justify-content:center;">
-                    <svg viewBox="0 0 32 32" fill="none" width="28" height="28">
-                      <path d="M8 4h16v12a8 8 0 01-16 0V4z" fill="#F5C200"/>
-                      <path d="M4 6h4v6a4 4 0 01-4 0V6z" fill="#F5C200" opacity="0.5"/>
-                      <path d="M28 6h-4v6a4 4 0 004 0V6z" fill="#F5C200" opacity="0.5"/>
-                      <rect x="13" y="20" width="6" height="4" fill="#F5C200"/>
-                      <rect x="10" y="24" width="12" height="3" rx="1.5" fill="#F5C200"/>
-                    </svg>
+              <!-- צד ימין: וידג'ט התקדמות כללית -->
+              <div style="background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:20px;direction:rtl;display:flex;flex-direction:column;justify-content:space-between;">
+                <div>
+                  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+                    <div style="font-size:15px;font-weight:700;color:var(--dark);">התקדמות כללית</div>
+                    <div style="font-size:12px;color:var(--muted);font-weight:500;">196 / 520 שאלות</div>
                   </div>
-                </div>
-                <div style="font-size:11px;color:var(--muted);">מתוך 10 מבחני סימולציה</div>
-              </div>
-
-              <!-- KPI 2 – ציון אחרון עם Donut -->
-              <div class="dt-stat" style="display:flex;flex-direction:column;gap:10px;">
-                <div class="dt-stat-label" style="text-align: center">ציון אחרון</div>
-                <div style="display:flex;align-items:center;gap:16px;">
-                  <!-- Donut – 67% fill. circumference = 2π×32 ≈ 201. fill = 201×0.67 ≈ 135 -->
-                  <svg viewBox="0 0 80 80" width="72" height="72" style="flex-shrink: 0; stroke-width: 1px; width: 84px; height: 87px">
-                    <circle cx="40" cy="40" r="32" fill="none" stroke="#e9eaeb" stroke-width="8"/>
-                    <circle cx="40" cy="40" r="32" fill="none" stroke="#1A3C8F" stroke-width="8"
-                      stroke-dasharray="135 66"
-                      stroke-linecap="round"
-                      transform="rotate(-90 40 40)"/>
-                    <text x="40" y="37" text-anchor="middle" font-size="15" font-weight="700" fill="#0D1F4E" font-family="Heebo,sans-serif">67%</text>
-                    <text x="40" y="51" text-anchor="middle" font-size="8" fill="#888" font-family="Heebo,sans-serif">ציון</text>
-                  </svg>
-                  <div style="display:flex;flex-direction:column;gap:6px;">
-                    <div style="background: #f0fdf4; color: #16a34a; font-size: 9px; font-weight: 700; padding: 4px 11px; border-radius: 20px; display: inline-block; width: 50.9306px">↑ 17 נקודות</div>
-                    <div style="font-size: 10px; color: var(--muted); padding: 0px; opacity: 0.72">מהמבחן הקודם</div>
+                  <!-- Segmented progress bar -->
+                  <div style="display:flex;height:12px;border-radius:10px;overflow:hidden;gap:2px;margin-bottom:20px;">
+                    <div style="flex:7;background:var(--done);border-radius:0 10px 10px 0;"></div>
+                    <div style="flex:4;background:var(--prog);"></div>
+                    <div style="flex:18;background:#e9eaeb;border-radius:10px 0 0 10px;"></div>
                   </div>
-                </div>
-              </div>
-
-              <!-- PROGRESS WIDGET -->
-              <div style="background:#fff;border:1.5px solid var(--border);border-radius:12px;padding:16px 18px;direction:rtl;">
-                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
-                  <div style="font-size:13px;font-weight:700;color:var(--dark);">התקדמות כללית</div>
-                  <div style="font-size:12px;color:var(--muted);">196 / 520 שאלות</div>
-                </div>
-                <!-- Segmented progress bar -->
-                <div style="display:flex;height:12px;border-radius:10px;overflow:hidden;gap:2px;margin-bottom:10px;">
-                  <div style="flex:7;background:var(--done);border-radius:10px 0 0 10px;"></div>
-                  <div style="flex:4;background:var(--prog);"></div>
-                  <div style="flex:18;background:#e9eaeb;border-radius:0 10px 10px 0;"></div>
                 </div>
                 <!-- Legend + counts -->
-                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
-                  <div style="text-align:center;background:#f0fdf4;border-radius:8px;padding:8px;">
-                    <div style="font-size:18px;font-weight:700;color:var(--done);">7</div>
-                    <div style="font-size:10px;color:#16a34a;font-weight:600;">הושלמו</div>
-                    <div style="font-size:9px;color:var(--muted);">קטגוריות</div>
+                <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+                  <div style="text-align:center;background:#f0fdf4;border-radius:8px;padding:10px;">
+                    <div style="font-size:20px;font-weight:700;color:var(--done);">7</div>
+                    <div style="font-size:11px;color:#16a34a;font-weight:600;">הושלמו</div>
+                    <div style="font-size:10px;color:var(--muted);">קטגוריות</div>
                   </div>
-                  <div style="text-align:center;background:#fffbeb;border-radius:8px;padding:8px;">
-                    <div style="font-size:18px;font-weight:700;color:#b45309;">8</div>
-                    <div style="font-size:10px;color:#b45309;font-weight:600;">בביצוע</div>
-                    <div style="font-size:9px;color:var(--muted);">קטגוריות</div>
+                  <div style="text-align:center;background:#fffbeb;border-radius:8px;padding:10px;">
+                    <div style="font-size:20px;font-weight:700;color:#b45309;">8</div>
+                    <div style="font-size:11px;color:#b45309;font-weight:600;">בביצוע</div>
+                    <div style="font-size:10px;color:var(--muted);">קטגוריות</div>
                   </div>
-                  <div style="text-align:center;background:#f9fafb;border-radius:8px;padding:8px;">
-                    <div style="font-size:18px;font-weight:700;color:#6b7280;">14</div>
-                    <div style="font-size:10px;color:#6b7280;font-weight:600;">לא התחלתי</div>
-                    <div style="font-size:9px;color:var(--muted);">קטגוריות</div>
+                  <div style="text-align:center;background:#f9fafb;border-radius:8px;padding:10px;">
+                    <div style="font-size:20px;font-weight:700;color:#6b7280;">14</div>
+                    <div style="font-size:11px;color:#6b7280;font-weight:600;">לא התחלתי</div>
+                    <div style="font-size:10px;color:var(--muted);">קטגוריות</div>
                   </div>
                 </div>
+              </div>
+
+              <!-- צד שמאל: כרטיסיית מבחנים משולבת (לפי הסקיצה) -->
+              <div class="dt-stat" style="display:flex;flex-direction:column;padding:0;">
+                
+                <!-- חלק עליון: ציון אחרון -->
+                <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;gap:8px;">
+                  <div style="font-size:12px;color:var(--muted);font-weight:600;">מבחן אחרון</div>
+                  
+                  <div style="display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:4px;">
+                    <!-- Donut -->
+                    <svg viewBox="0 0 80 80" width="60" height="60" style="flex-shrink: 0;">
+                      <circle cx="40" cy="40" r="32" fill="none" stroke="#e9eaeb" stroke-width="8"/>
+                      <circle cx="40" cy="40" r="32" fill="none" stroke="#1A3C8F" stroke-width="8"
+                        stroke-dasharray="135 66" stroke-linecap="round" transform="rotate(-90 40 40)"/>
+                      <text x="40" y="47" text-anchor="middle" font-size="20" font-weight="700" fill="#0D1F4E" font-family="Heebo,sans-serif">67</text>
+                    </svg>
+                    <!-- מגמה -->
+                    <div style="background:#f0fdf4;color:#16a34a;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;margin-top:2px;">↑ 17 נקודות</div>
+                  </div>
+                </div>
+
+                <!-- קו מפריד עדין -->
+                <div style="height:1px;background:var(--border);width:85%;margin:0 auto;"></div>
+
+                <!-- חלק תחתון: מבחנים שהושלמו -->
+                <div style="flex:0.8;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:16px;gap:4px;">
+                  <div style="font-size:11px;color:var(--muted);font-weight:600;">מבחנים שהושלמו</div>
+                  <div style="font-size:36px;font-weight:700;color:var(--dark);line-height:1;">4</div>
+                </div>
+
               </div>
 
             </div>
+
 
             <!-- RESUME BANNER -->
             <div class="dt-resume">
